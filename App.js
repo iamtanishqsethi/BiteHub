@@ -1,37 +1,78 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+/*
+* Header
+*   -logo
+*   -Nav items
+* body
+*   -search
+*   -Restaurant container
+*       -restaurantCards
+*           -img
+*           -name
+*           -menu
+*           -cuisine
+*           -star rating
+*           -ETA
+* footer
+*   -copyright\
+*   -address
+*   -contact*/
 
-//React Element(using core react) => object => render => html element
-// const heading=React.createElement("h1",{id:"heading"},"Namaste  React")
-
-//JSX(transpiled before it reaches to javascript engine)- parcel-> Babel
-const heading=<h1 id="heading" className="head">Namaste React using jsx</h1>//react element
-//JSX -> React.createElement->react element - js object->html element
-
-//React  functional component
-//Class based components(old)
-//Functional components(new)
-const Title=()=>(
-    <h1>Title component</h1>
-)
-const num=1000
-//component inside a component is Component Composition
-const HeadingComponent=()=>(
-    <div id="container">
-        <Title/>
-        <h2>
-            {//here we can inject any js code and can any react element in it as well
-
-                num
-            }
-        </h2>
-
-        <h1>Namaste React Functional Component</h1>
-    </div>
-);
-//for the above code we can write it without using {} and it will not include any return statement
-
-
+const Header=()=>{
+    return(
+        <div className="header">
+            <div className="logo-container">
+                <img className="logo" src="https://images-platform.99static.com/A_Ax0GQuo_NHI0Y7XZHmFtGfBDY=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/126/126252/attachment_126252018" alt=""/>
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact us</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
+}
+const styleCard={
+    backgroundColor:"#f0f0f0",
+}
+const RestaurantCard=(props)=>{
+    return (
+        <div className="res-card" style={styleCard}>
+            <img className="res-logo"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/hgvtyqrxzvpwmbs361er"
+                alt="res-logo"/>
+            <h3>{props.resName}</h3>
+            <h4>{props.cusine}</h4>
+            <h4>4.4 stars</h4>
+            <h4>28mins</h4>
+        </div>
+    )
+}
+const Body = () => {
+    return(
+        <div className="body">
+            <div className="search">
+                Search
+            </div>
+            <div className="res-container">
+                <RestaurantCard resName="La Pino'z Pizza" cusine="Pizza,Pasta,Italian"/>
+                <RestaurantCard resName="KFC" cusine="Chicken,Burger,FastFood"/>
+            </div>
+        </div>
+    )
+}
+const AppLayout=()=>{
+    return(
+        <div className="app">
+            <Header/>
+            <Body/>
+        </div>
+    )
+}
 const root= ReactDOM.createRoot(document.getElementById("root"))
 // root.render(HeadingComponent)//cannot render it like this as it is a component
-root.render(<HeadingComponent/>)//this syntax is understood by babel
+root.render(<AppLayout/>)//this syntax is understood by babel
