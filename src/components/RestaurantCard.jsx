@@ -11,7 +11,7 @@ const RestaurantCard=(props)=>{
         costForTwo,
         deliveryTime,
     }=resData?.info;
-    console.log(CDN_URL+cloudinaryImageId)
+    // console.log(CDN_URL+cloudinaryImageId)
     return (
         <div className="res-card" style={{backgroundColor:'#f0f0f0'}}>
             <img className="res-logo"
