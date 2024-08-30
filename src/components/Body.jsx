@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import {useState} from "react";
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom";
 //useState is used to maintain  the state of your react component/react app
 
 const Body = () => {
@@ -66,7 +67,7 @@ const Body = () => {
                 {/*<RestaurantCard resName="La Pino'z Pizza" cusine="Pizza,Pasta,Italian"/>*/}
                 {/*<RestaurantCard resName="KFC" cusine="Chicken,Burger,FastFood"/>*/}
                 {filteredRestaurants.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant}/>
+                    <Link className={"resCard-link"} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id }> <RestaurantCard  resData={restaurant}/></Link>
                 ))
                 }
             </div>

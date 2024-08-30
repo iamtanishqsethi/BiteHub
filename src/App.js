@@ -7,6 +7,7 @@ import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";//thi
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 
 // const styleCard={
@@ -53,6 +54,11 @@ const appRouter=createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact/>
+            },
+            {
+                path:"/restaurants/:resId",
+                element:<RestaurantMenu/>
+
             }
         ],
         errorElement:<Error/>
@@ -61,6 +67,5 @@ const appRouter=createBrowserRouter([
     //if we have something which is not mentioned in our path , it will give  404 not found
 ])
 const root= ReactDOM.createRoot(document.getElementById("root"))
-// root.render(HeadingComponent)//cannot render it like this as it is a component
 root.render(<RouterProvider router={appRouter}/>)//this syntax is understood by babel
 //router provider is a component that take the app router

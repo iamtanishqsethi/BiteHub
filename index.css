@@ -14,10 +14,16 @@
     font-size: 24px;
     display: flex;
     list-style: none;
+
 }
 .nav-items >ul>li{
     padding:10px ;
     margin: 10px;
+
+}
+.navItem{
+    text-decoration: none;
+    color: black;
 }
 .res-container{
     display: flex;
@@ -59,4 +65,8 @@
 }
 .filter{
     display: flex;
+}
+.resCard-link{
+    text-decoration: none;
+    color: inherit;
 }

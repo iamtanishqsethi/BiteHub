@@ -19,10 +19,17 @@ const Header=()=>{
             </div>
             <div className="nav-items">
                 <ul>
-                    <li><Link to="/">Home</Link></li>{/*using anchor tag we are reloading the whole page , with react we can do this without reloading the whole page */}
-                    {/*we can use link component */}
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact us</Link></li>
+                    <li><Link className={"navItem"} to="/">Home</Link></li>{/*using anchor tag we are reloading the whole page , with react we can do this without reloading the whole page */}
+                    {/*
+                    we can use link component
+                    react applications are known as single page application
+                    every time we shift using link we are avoiding reloading everytime
+
+                    html sees link component as anchor tag only,it's a wrapper over anchor tag
+                    */}
+                    <li><Link className={"navItem"} to="/about">About</Link></li>
+                    <li><Link className={"navItem"}
+                        to="/contact">Contact us</Link></li>
                     <li>Cart</li>
                     <button className="login" onClick={()=>{
                         buttonName==="login"?setButtonName("logout"):setButtonName("login")//this will rerender not just  the button but the whole header component
