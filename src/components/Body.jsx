@@ -4,6 +4,8 @@ import resList from "../utils/mockData";
 import {useState} from "react";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import on from "../../dist/index.7271efb6";
 //useState is used to maintain  the state of your react component/react app
 
 const Body = () => {
@@ -29,6 +31,13 @@ const Body = () => {
         setFilteredRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
         //this code  is not working correctly now
 
+    }
+
+    const onlineStatus=useOnlineStatus()
+    if(onlineStatus===false){
+        return (
+            <h1>Looks like you are offline!!</h1>
+        )
     }
     //for loading screen
     //latest practice is to show a shimer ui till the data from the api is loaded

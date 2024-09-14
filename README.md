@@ -13,3 +13,7 @@
 
 - React does this because when the commit phase start dom manipulation takes place
 - and dom manipulation is the most expensive operation when loading a document
+
+# Single Responsibility Principle
+Any piece of code like a function , class, should have one single responsibility or purpose 
+Or in simple words -> Modular code 

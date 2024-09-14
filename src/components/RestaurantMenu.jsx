@@ -1,22 +1,16 @@
 import {useEffect,useState} from "react";
 import Shimmer from "./Shimmer";
 import {useParams} from "react-router-dom";
-import {MENU_API_URL} from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu=()=>{
-    const [resInfo,setResInfo]=useState(null);
 
     const {resId}=useParams();//it returns the object with the id, here we are destructuring it
+
+
     console.log(resId)
-    useEffect(()=>{
-        fetchMenu()
-    },[])
-    //the dependency is an empty array because we only have to fetch one , if no depen it will fetch every time
-    const fetchMenu=async ()=>{
-        const data=await fetch (MENU_API_URL+resId)
-        const json = await data.json();
-        setResInfo(json?.data)
-    }
+    const resInfo=useRestaurantMenu(resId);//custom react hook
+    console.log(resInfo)
     if(resInfo===null) return <Shimmer/>
     const{name,costForTwoMessage,cuisines}=resInfo.cards[2].card.card.info
     return(

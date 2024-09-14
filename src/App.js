@@ -21,6 +21,11 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 // * Note: A Good Senior Frontend engineer is - who is a good UI Layer Engineer and a good Data Layer Engineer
 
+
+//chunking , code splitting, dynamic bundling , lazy loading all are names for the same thing
+//they all mean that we have to spilt our application into smaller chunks
+//we have to bundle in a smaller way
+
 const AppLayout=()=>{
     return(
         <div className="app">
