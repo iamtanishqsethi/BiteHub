@@ -4,8 +4,7 @@ import resList from "../utils/mockData";
 import {useState} from "react";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import on from "../../dist/index.7271efb6";
+// import useOnlineStatus from "../utils/useOnlineStatus";
 //useState is used to maintain  the state of your react component/react app
 
 const Body = () => {
@@ -33,12 +32,13 @@ const Body = () => {
 
     }
 
-    const onlineStatus=useOnlineStatus()
-    if(onlineStatus===false){
-        return (
-            <h1>Looks like you are offline!!</h1>
-        )
-    }
+    // const onlineStatus=useOnlineStatus()
+    // if(onlineStatus===false){
+    //     return (
+    //         <h1>Looks like you are offline!!</h1>
+    //     )
+    // }
+
     //for loading screen
     //latest practice is to show a shimer ui till the data from the api is loaded
     //shimer ui is like a skeleton of how the webpage will look like after rendering
