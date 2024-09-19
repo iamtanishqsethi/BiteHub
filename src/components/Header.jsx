@@ -13,13 +13,13 @@ const Header=()=>{
         console.log("useEffect called")
     },[buttonName])
     return(
-        <div className="header">
+        <div className="flex justify-between bg-green-200 shadow-lg m-3 rounded-xl">
             <div className="logo-container">
-                <img className="logo" src={LOGO_URL} alt=""/>
+                <img className="w-24 m-4 rounded-[50%] object-center " src={LOGO_URL} alt=""/>
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li><Link className={"navItem"} to="/">Home</Link></li>{/*using anchor tag we are reloading the whole page , with react we can do this without reloading the whole page */}
+            <div className="flex items-center justify-between">
+                <ul className="flex p-4 m-4">
+                    <li className="px-4 text-xl font-medium"><Link className={"navItem"} to="/">Home</Link></li>{/*using anchor tag we are reloading the whole page , with react we can do this without reloading the whole page */}
                     {/*
                     we can use link component
                     react applications are known as single page application
@@ -27,10 +27,10 @@ const Header=()=>{
 
                     html sees link component as anchor tag only,it's a wrapper over anchor tag
                     */}
-                    <li><Link className={"navItem"} to="/about">About</Link></li>
-                    <li><Link className={"navItem"}
+                    <li className="px-4 text-xl font-medium"><Link className={"navItem"} to="/about">About</Link></li>
+                    <li className="px-4 text-xl font-medium"><Link className={"navItem"}
                         to="/contact">Contact us</Link></li>
-                    <li>Cart</li>
+                    <li className="px-4 text-xl font-medium">Cart</li>
                     <button className="login" onClick={()=>{
                         buttonName==="login"?setButtonName("logout"):setButtonName("login")//this will rerender not just  the button but the whole header component
                     }}>{buttonName}</button>

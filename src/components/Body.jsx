@@ -46,14 +46,14 @@ const Body = () => {
     const [searchText, setSearchText] = useState('');
     return listOfRestaurants.length===0?(<Shimmer/>):(
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+            <div className="filter flex items-center">
+                <div className="search m-4 p-4">
+                    <input type="text" className="border-solid border-black" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                         //wherever there is a change in state variable react triggers a new reconciliation cycle ie it re-renders the whole component every time
                     }}/>
 
-                    <button onClick={
+                    <button  className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={
 
                         ()=>{
                             //filter res cards and update ui
@@ -65,14 +65,18 @@ const Body = () => {
                         }
                     }>Search</button>
                 </div>
-                <button className="filter-btn" onClick={() => {
-                    const filteredRestaurants = listOfRestaurants.filter(
-                        (item) => item.info.avgRating > 4
-                    );
-                    setListOfRestaurants(filteredRestaurants);
-                }}>Top rated Restaurants</button>
+                <div className="m-4 p-4 rounded-lg">
+                    <button className="px-4 py-2 bg-green-100 m-4" onClick={() => {
+                        const filteredRestaurants = listOfRestaurants.filter(
+                            (item) => item.info.avgRating > 4
+                        );
+                        setListOfRestaurants(filteredRestaurants);
+                    }}>Top rated Restaurants
+                    </button>
+                </div>
+
             </div>
-            <div className="res-container">
+            <div className="res-container flex flex-wrap items-center justify-center">
                 {/*<RestaurantCard resName="La Pino'z Pizza" cusine="Pizza,Pasta,Italian"/>*/}
                 {/*<RestaurantCard resName="KFC" cusine="Chicken,Burger,FastFood"/>*/}
                 {filteredRestaurants.map((restaurant) => (
