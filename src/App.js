@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,57 +8,56 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 
-
-// const styleCard={
-//     backgroundColor:"#f0f0f0",
-// }
-
-// * not using keys (not acceptable) <<<< index as a key <<<<<<<<<< unique id (is the best  practice)
-/* // * We can also use index as the key to the JSX child elemnt - which is the 2nd parameter of the map() method, but is not a recommended practice - react official Docs declared this*/
-// * What is Config-driven-UI -> A "config-driven UI" is a user interface that is built and configured using a declarative configuration file or data structure, rather than being hardcoded.
-// * Every company now-a-days follows these approach, because our Appications need to be Dynamic These Days
-
-// * Note: A Good Senior Frontend engineer is - who is a good UI Layer Engineer and a good Data Layer Engineer
-
-
-//chunking , code splitting, dynamic bundling , lazy loading all are names for the same thing
-//they all mean that we have to spilt our application into smaller chunks
-//we have to bundle in a smaller way
 
 const AppLayout=()=>{
+    //some authentication code
+    const [userInfo,setUserInfo]=useState(null);
+    useEffect(()=>{
+        //api call here
+        //send user data
+        const data={
+            name:"Tanishq Sethi"
+        }
+        setUserInfo(data.name)
+    },[])
+
     return(
-        <div className="app">
-            <Header/>
-            {
-                /*
-                if path ='/'
-                if path =/about = about component in child
-                if path =/contact = contact component in child
-                */
-            }
-            <Outlet/>{/*whenever there is change in the path the outlet is changed in the app from the children routes
+        <UserContext.Provider value={{loggedInUser: userInfo}}>
+            <div className="app">
+                <Header/>
+                {
+                    /*
+                    if path ='/'
+                    if path =/about = about component in child
+                    if path =/contact = contact component in child
+                    */
+                }
+                <Outlet/>{/*whenever there is change in the path the outlet is changed in the app from the children routes
             the outlet is replaced according to the path in the html*/}
-        </div>
+            </div>
+        </UserContext.Provider>
+
     )
 }
-const appRouter=createBrowserRouter([
+const appRouter = createBrowserRouter([
     {
         path: "/",
-        element:<AppLayout/>,//load this element
-        children:[
-          //children routes
+        element: <AppLayout/>,//load this element
+        children: [
+            //children routes
             {
-                path:"/",
-                element:<Body/>
+                path: "/",
+                element: <Body/>
             },
             {
-                path:"/about",
-                element:<About/>
+                path: "/about",
+                element: <About/>
             },
             {
-                path:"/contact",
-                element:<Contact/>
+                path: "/contact",
+                element: <Contact/>
             },
             {
                 path:"/restaurants/:resId",

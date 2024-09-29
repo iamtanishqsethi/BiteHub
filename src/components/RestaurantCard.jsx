@@ -27,4 +27,17 @@ const RestaurantCard=(props)=>{
         </div>
     )
 }
+//higher order component 
+export const withIsVeg=(RestaurantCard)=>{
+    return (props)=>{//this is a new component it is returning
+        return (
+            <div>
+                <label className="absolute bg-green-500 text-white m-2 p-2 rounded-lg">Pure Veg</label>
+                <RestaurantCard  {...props}/>
+            </div>
+
+        )
+    }
+}
+
 export default RestaurantCard;
