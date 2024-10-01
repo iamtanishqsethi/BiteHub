@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useState} from "react";
 import userContext from "../utils/UserContext";
 import UserContext from "../utils/UserContext";
+import {useSelector} from "react-redux";
 
 const Header=()=>{
      // let buttonName="login"
@@ -16,6 +17,10 @@ const Header=()=>{
     useEffect(()=>{
         console.log("useEffect called")
     },[buttonName])
+    //subscribing to the store using selector
+    const cartItems = useSelector((store)=>store.cart.items)
+
+
     return(
         <div className="flex justify-between bg-green-200 shadow-lg m-3 rounded-xl">
             <div className="logo-container">
@@ -24,22 +29,15 @@ const Header=()=>{
             <div className="flex items-center justify-between">
                 <ul className="flex p-4 m-4">
                     <li className="px-4 text-xl font-medium"><Link className={"navItem"} to="/">Home</Link></li>
-                    {/*using anchor tag we are reloading the whole page , with react we can do this without reloading the whole page */}
-                    {/*
-                    we can use link component
-                    react applications are known as single page application
-                    every time we shift using link we are avoiding reloading everytime
-
-                    html sees link component as anchor tag only,it's a wrapper over anchor tag
-                    */}
                     <li className="px-4 text-xl font-medium"><Link className={"navItem"} to="/about">About</Link></li>
                     <li className="px-4 text-xl font-medium"><Link className={"navItem"}
                                                                    to="/contact">Contact us</Link></li>
-                    <li className="px-4 text-xl font-medium">Cart</li>
+                    <li className="px-4 text-xl font-medium">
+                        <Link to="/cart">Cart ({cartItems.length} items)</Link></li>
                     <button className="login" onClick={() => {
                         buttonName === "login" ? setButtonName("logout") : setButtonName("login")//this will rerender not just  the button but the whole header component
                     }}>{buttonName}</button>
-                    <li className="px-4 text-xl font-medium">{loggedInUser}</li>
+                    {/*<li className="px-4 text-xl font-medium">{loggedInUser}</li>*/}
                 </ul>
             </div>
         </div>

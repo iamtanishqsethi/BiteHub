@@ -9,6 +9,10 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import {Provider} from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+
 
 
 const AppLayout=()=>{
@@ -24,20 +28,16 @@ const AppLayout=()=>{
     },[])
 
     return(
-        <UserContext.Provider value={{loggedInUser: userInfo}}>
-            <div className="app">
-                <Header/>
-                {
-                    /*
-                    if path ='/'
-                    if path =/about = about component in child
-                    if path =/contact = contact component in child
-                    */
-                }
-                <Outlet/>{/*whenever there is change in the path the outlet is changed in the app from the children routes
-            the outlet is replaced according to the path in the html*/}
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{loggedInUser: userInfo}}>
+                <div className="app">
+                    <Header/>
+
+                    <Outlet/>
+                </div>
+            </UserContext.Provider>
+        </Provider>
+
 
     )
 }
@@ -63,6 +63,10 @@ const appRouter = createBrowserRouter([
                 path:"/restaurants/:resId",
                 element:<RestaurantMenu/>
 
+            },
+            {
+                path:"/cart",
+                element:<Cart/>
             }
         ],
         errorElement:<Error/>
