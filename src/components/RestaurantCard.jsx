@@ -13,7 +13,7 @@ const RestaurantCard=(props)=>{
     }=resData?.info;
     // console.log(CDN_URL+cloudinaryImageId)
     return (
-        <div className="res-card  m-4  p-4 w-[220px] h-[450px] rounded-lg items-center bg-gray-100 hover:bg-gray-300">
+        <div data-testid="rescard" className="res-card  m-4  p-4 w-[220px] h-[450px] rounded-lg items-center bg-gray-100 hover:bg-gray-300">
             <img className="res-logo  rounded-lg w-[200px] h-[50%] object-cover object-center object-fit"
                 // src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/hgvtyqrxzvpwmbs361er"
                  src={CDN_URL+cloudinaryImageId}

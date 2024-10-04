@@ -14,7 +14,9 @@ const ItemList= ({items})=>{
 
     return(
         <div>
-            {items.map(item=> <div key={item.card.info.id} className="p-2 m-2 border-b-2">
+            {items.map(item=> <div
+                data-testid="item-list"
+                key={item.card.info.id} className="p-2 m-2 border-b-2">
                 <div className="flex flex-wrap justify-between align-items-center ">
                     <div className="w-[50%]">
                         <div className="py-2">

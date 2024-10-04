@@ -17,3 +17,10 @@
 # Single Responsibility Principle
 Any piece of code like a function , class, should have one single responsibility or purpose 
 Or in simple words -> Modular code 
+
+#  Types of Testing  (Developer)
+- Unit Testing -> test the individual react components in isolation 
+- Integration Testing -> testing the integration of these components 
+- End to end testing - e2e testing -> testing the app as soon as user lands on page till the user leaves the app
+
+React testing library uses - Jest 

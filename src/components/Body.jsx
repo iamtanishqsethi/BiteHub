@@ -45,7 +45,7 @@ const Body = () => {
         <div className="body">
             <div className="filter flex items-center">
                 <div className="search m-4 p-4">
-                    <input type="text" className="border-solid border-black" value={searchText} onChange={(e)=>{
+                    <input type="text"  data-testid="searchInput" className="border-solid border-black" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                         //wherever there is a change in state variable react triggers a new reconciliation cycle ie it re-renders the whole component every time
                     }}/>
