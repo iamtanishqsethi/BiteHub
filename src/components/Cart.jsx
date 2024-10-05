@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import ItemList from "./ItemList";
 import {clearCart} from "../utils/cartSlice";
 import {Link} from "react-router-dom";
+import CartItemList from "./CartItemList";
 
 const Cart=()=>{
 
@@ -21,17 +22,19 @@ const Cart=()=>{
     }
     return(
         <div className="text-center m-10 p-10">
-            <h1 className="text-4xl font-bold">Cart</h1>
+            <h1 className="text-5xl font-bold p-4"> Your Cart 🍽️</h1>
             <div className={"w-6/12 m-auto"}>
                 <button className={"p-2 m-2 bg-gray-600 text-white rounded-lg"}
                     onClick={()=> handleClearCart()}
                 >Clear cart</button>
                 {cartItems.length===0&&
-                    <div>
-                        <h1 className={"text-2xl text-gray-400"}> Looks like your Cart is Empty !!</h1>
-                        <h2 className={"text-xl text-gray-400"}>To order Go to <Link  className={" text-gray-600 font-medium"} to={"/"}>Home</Link></h2>
+                    <div className="p-8 m-8">
+                        <h1 className={"text-4xl text-gray-400 p-4"}> Oops !!</h1>
+                        <h1 className={"text-4xl text-gray-400"}> Looks like your Cart is Empty </h1>
+                        <h2 className={"text-3xl text-gray-400"}>To order Go to <Link
+                            className={" text-gray-600 font-medium"} to={"/"}>Home</Link></h2>
                     </div>}
-                <ItemList items={cartItems}/>
+                <CartItemList items={cartItems}/>
             </div>
         </div>
     )

@@ -10,8 +10,9 @@ const cartSlice= createSlice({
         addItem:(state,action)=>{
             state.items.push(action.payload);
         },
-        removeItem:(state )=>{
-            state.items.pop()
+        removeItem:(state,action )=>{
+            const removedItem=action.payload
+            state.items=state.items.filter((item)=>item.card.info.id!==removedItem);
         },
         clearCart:(state)=>{
             //state =[] is modifying the local state variable

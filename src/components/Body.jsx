@@ -73,7 +73,7 @@ const Body = () => {
                 </div>
 
             </div>
-            <div className="res-container flex flex-wrap items-center justify-center">
+            <div className="res-container flex flex-wrap items-center justify-center py-4 px-2">
                 {filteredRestaurants.map((restaurant) => (
                     <Link className={"resCard-link"} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id }>
                         {restaurant?.info?.veg?<RestaurantCardVeg resData={restaurant}/>:<RestaurantCard  resData={restaurant}/>}
