@@ -37,11 +37,11 @@ class UserClass extends React.Component{
         //this will return a piece of jsx
         const {name,twitter_username,login,avatar_url}=this.state.userInfo
         return(
-            <div className="user-card">
-                <img src={avatar_url} alt=""/>
-                <h2>Name:{name} </h2>
-                <h3>Contact: @{twitter_username}</h3>
-                <h3>Github :{login}</h3>
+            <div className="flex flex-col items-center justify-center">
+                <img  className={"w-[50%] h-[50%] rounded-full"} src={avatar_url} alt=""/>
+                <h2 className={"font-bold text-lg"}>Name:{name} </h2>
+                <h3 className={"font-bold text-lg"}>Contact: @{twitter_username}</h3>
+                <h3 className={"font-bold text-lg"}>Github :{login}</h3>
                 {/*<h1>Count:{this.state.count}</h1>*/}
                 {/*<button onClick={()=>{*/}
                 {/*    this.setState({*/}

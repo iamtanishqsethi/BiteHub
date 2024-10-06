@@ -13,17 +13,17 @@ const RestaurantCard=(props)=>{
     }=resData?.info;
     // console.log(CDN_URL+cloudinaryImageId)
     return (
-        <div data-testid="rescard" className="res-card  m-4  p-4 w-[220px] h-[450px] rounded-lg items-center bg-gray-100 hover:bg-gray-300">
-            <img className="res-logo  rounded-lg w-[200px] h-[50%] object-cover object-center object-fit"
+        <div data-testid="rescard" className=" transition ease-in-out res-card  m-4  p-4 w-[280px] h-[440px] rounded-lg items-center bg-gray-100 hover:bg-gray-300 hover:scale-105">
+            <img className="res-logo  rounded-lg w-[250px] h-[60%] object-cover object-center object-fit"
                 // src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/hgvtyqrxzvpwmbs361er"
                  src={CDN_URL+cloudinaryImageId}
                  alt="res-logo"
             />
-            <h3 className="font-bold py-2 text-lg">{name}</h3>
-            <h4 className="text-sm">{cuisines.join(', ')}</h4>
-            <h4 className="text-sm">{avgRating} stars</h4>
-            <h4 className="text-sm">{costForTwo}</h4>
-            <h4 className="text-sm">{resData.info.sla.deliveryTime} minutes</h4>
+            <h3 className="font-bold py-2 text-xl">{name}</h3>
+            <h4 className="text-sm font-bold text-gray-500">{cuisines.join(', ')}</h4>
+            <h4 className="text-sm font-bold text-gray-500">{avgRating} ⭐</h4>
+            <h4 className="text-sm font-bold text-gray-500">{costForTwo}</h4>
+            <h4 className="text-sm font-bold text-gray-500"> 🕐{resData.info.sla.deliveryTime} minutes</h4>
         </div>
     )
 }
@@ -32,7 +32,7 @@ export const withIsVeg=(RestaurantCard)=>{
     return (props)=>{//this is a new component it is returning
         return (
             <div>
-                <label className="absolute bg-green-500 text-white m-2 p-2 rounded-lg">Pure Veg</label>
+                <label className="absolute bg-green-500 text-white m-2 p-2 rounded-lg z-10">Pure Veg</label>
                 <RestaurantCard  {...props}/>
             </div>
 

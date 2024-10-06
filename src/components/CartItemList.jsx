@@ -23,15 +23,16 @@ const CartItemList = ({items}) => {
                         <p className="text-sm font-medium text-gray-400">{item?.card?.info?.description}</p>
                     </div>
                     <div className="w-[30%]">
-                        <div className="absolute">
+                        <div className="relative">
+
                             <button
-                                className="p-2 mx-16 bg-red-600 shadow-lg rounded-lg  text-white font-bold"
-                                onClick={()=> handleItem(item)}
+                                className="p-2 bg-red-600 shadow-lg rounded-lg  text-white font-bold absolute z-10 top-3/4 left-1/4 "
+                                onClick={() => handleItem(item)}
                             >
                                 Remove
                             </button>
+                            <img src={CDN_URL + item?.card?.info?.imageId} alt="" className="w-40 h-40 rounded-lg"/>
                         </div>
-                        <img src={CDN_URL + item?.card?.info?.imageId} alt="" className="w-40 h-40 rounded-lg"/>
 
 
                     </div>

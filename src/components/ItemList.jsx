@@ -27,16 +27,16 @@ const ItemList= ({items})=>{
                         <p className="text-sm font-medium text-gray-400">{item.card.info.description}</p>
                     </div>
                     <div className="w-[30%]">
-                        <div className="absolute">
-                            <button
-                                className="p-2 mx-16 bg-white shadow-lg rounded-lg  text-blue-400 font-bold"
-                                onClick={()=> handleItems(item)}
-                            >
-                                Add +
-                            </button>
-                        </div>
-                        <img src={CDN_URL + item?.card?.info?.imageId} alt="" className="w-40 h-40 rounded-lg"/>
+                        <div className="relative">
 
+                            <button
+                                className="p-2 bg-white drop-shadow-lg rounded-lg  text-blue-400 font-bold absolute z-10 top-3/4 left-1/4 "
+                                onClick={() => handleItems(item)}
+                            >
+                                ADD +
+                            </button>
+                            <img src={CDN_URL + item?.card?.info?.imageId} alt="" className="w-40 h-40 rounded-lg"/>
+                        </div>
 
                     </div>
                 </div>
