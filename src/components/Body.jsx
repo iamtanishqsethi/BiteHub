@@ -43,31 +43,31 @@ const Body = () => {
     const [searchText, setSearchText] = useState('');
     return listOfRestaurants.length===0?(<Shimmer/>):(
         <div className="body">
-            <div className="filter flex items-center">
-                <div className="search m-4 p-4">
-                    <input type="text"  data-testid="searchInput" className="border-solid border-black" value={searchText} onChange={(e)=>{
+            <div className="filter mx-auto w-6/12 items-center">
+                <div className="search flex flex-nowrap items-center justify-center ">
+                    <input type="text"  data-testid="searchInput" className=" border-gray-500 bg-gray-200   w-2/4 py-2 rounded-lg px-2 rounded-r-none" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                         //wherever there is a change in state variable react triggers a new reconciliation cycle ie it re-renders the whole component every time
                     }}/>
 
-                    <button  className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={
+                    <button  className="px-4 py-2 bg-green-100 m-4 rounded-lg ml-0 rounded-l-none font-medium" onClick={
 
                         ()=>{
                             //filter res cards and update ui
                             //search text
                             const filteredRestaurant=listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                             setFilteredRestaurants(filteredRestaurant);
-                            console.log(searchText)
+                            // console.log(searchText)
 
                         }
                     }>Search</button>
                 </div>
-                <div className="m-4 p-4 rounded-lg">
-                    <button className="px-4 py-2 bg-green-100 m-4" onClick={() => {
+                <div className={" flex items-center justify-center"}>
+                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg font-medium" onClick={() => {
                         const filteredRestaurants = listOfRestaurants.filter(
-                            (item) => item.info.avgRating > 4
+                            (item) => item.info.avgRating > 4.4
                         );
-                        setListOfRestaurants(filteredRestaurants);
+                        setFilteredRestaurants(filteredRestaurants);
                     }}>Top rated Restaurants
                     </button>
                 </div>
