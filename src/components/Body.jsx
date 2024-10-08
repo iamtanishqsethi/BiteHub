@@ -45,7 +45,7 @@ const Body = () => {
         <div className="body">
             <div className="filter mx-auto w-6/12 items-center">
                 <div className="search flex flex-nowrap items-center justify-center ">
-                    <input type="text"  data-testid="searchInput" className=" border-gray-500 bg-gray-200   w-2/4 py-2 rounded-lg px-2 rounded-r-none" value={searchText} onChange={(e)=>{
+                    <input type="text"  data-testid="searchInput" className=" border-gray-500 bg-gray-200   w-2/4 py-2 rounded-lg px-2 rounded-r-none" placeholder={"Search for Restaurants..."} value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                         //wherever there is a change in state variable react triggers a new reconciliation cycle ie it re-renders the whole component every time
                     }}/>
@@ -60,7 +60,7 @@ const Body = () => {
                             // console.log(searchText)
 
                         }
-                    }>Search</button>
+                    }>Search </button>
                 </div>
                 <div className={" flex items-center justify-center"}>
                     <button className="px-4 py-2 bg-green-100 m-4 rounded-lg font-medium" onClick={() => {
