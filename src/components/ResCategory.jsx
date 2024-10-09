@@ -13,7 +13,7 @@ const ResCategory=({data,showItems,setShowIndex})=>{
                 handleClick
             }>
                 <span className="text-lg font-medium">{data.title} ({data?.itemCards?.length})</span>
-                <span>🔻</span>
+                <span><i className="fa fa-angle-down" aria-hidden="true"></i></span>
             </div>
             {showItems && <ItemList items={data.itemCards}/>}
 

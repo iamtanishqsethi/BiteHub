@@ -29,9 +29,9 @@ const Cart=()=>{
                 >Clear cart</button>
                 {cartItems.length===0&&
                     <div className="p-8 m-8">
-                        <h1 className={"text-4xl text-gray-400 p-4"}> Oops !!</h1>
-                        <h1 className={"text-4xl text-gray-400"}> Looks like your Cart is Empty </h1>
-                        <h2 className={"text-3xl text-gray-400"}>To order Go to <Link
+                        <h1 className={"text-3xl text-gray-400 p-4"}> Oops !!</h1>
+                        <h1 className={"text-2xl text-gray-400"}> Looks like your Cart is Empty </h1>
+                        <h2 className={"text-2xl text-gray-400"}>To order Go to <Link
                             className={" text-gray-600 font-medium"} to={"/"}>Home</Link></h2>
                     </div>}
                 <CartItemList items={cartItems}/>

@@ -21,9 +21,10 @@ const RestaurantCard=(props)=>{
             />
             <h3 className="font-bold py-2 text-xl">{name}</h3>
             <h4 className="text-sm font-bold text-gray-500">{cuisines.join(', ')}</h4>
-            <h4 className="text-sm font-bold text-gray-500">{avgRating} ⭐</h4>
+            <h4 className="text-sm font-bold text-gray-500">{avgRating} <i className="fa-solid fa-star text-yellow-400"></i></h4>
             <h4 className="text-sm font-bold text-gray-500">{costForTwo}</h4>
-            <h4 className="text-sm font-bold text-gray-500"> 🕐{resData.info.sla.deliveryTime} minutes</h4>
+            <h4 className="text-sm font-bold text-gray-500">  <i className="fa-regular fa-clock"></i> {resData.info.sla.deliveryTime} minutes
+            </h4>
         </div>
     )
 }

@@ -50,17 +50,17 @@ const Body = () => {
                         //wherever there is a change in state variable react triggers a new reconciliation cycle ie it re-renders the whole component every time
                     }}/>
 
-                    <button  className="px-4 py-2 bg-green-100 m-4 rounded-lg ml-0 rounded-l-none font-medium" onClick={
+                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg ml-0 rounded-l-none font-medium" onClick={
 
-                        ()=>{
+                        () => {
                             //filter res cards and update ui
                             //search text
-                            const filteredRestaurant=listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                            const filteredRestaurant = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                             setFilteredRestaurants(filteredRestaurant);
                             // console.log(searchText)
 
                         }
-                    }>Search </button>
+                    }>Search <i className="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div className={" flex items-center justify-center"}>
                     <button className="px-4 py-2 bg-green-100 m-4 rounded-lg font-medium" onClick={() => {
@@ -68,7 +68,7 @@ const Body = () => {
                             (item) => item.info.avgRating > 4.4
                         );
                         setFilteredRestaurants(filteredRestaurants);
-                    }}>Top rated Restaurants
+                    }}>Top rated Restaurants <i className="fa-solid fa-ranking-star"></i>
                     </button>
                 </div>
 
