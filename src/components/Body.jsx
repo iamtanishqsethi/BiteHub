@@ -20,13 +20,13 @@ const Body = () => {
 
     const fetchData = async () => {
         const data= await fetch(
-            'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.73826769999999&lng=77.0822151&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+            'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7142373&lng=77.1170551&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
         );
         const json = await data.json();
         // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
         //optional chaining
-        setListOfRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
-        setFilteredRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+        setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         //this code  is not working correctly now
 
     }
