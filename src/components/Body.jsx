@@ -63,7 +63,7 @@ const Body = () => {
                     }>Search <i className="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div className={" flex items-center justify-center"}>
-                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg font-medium" onClick={() => {
+                    <button className="px-4 py-2 bg-green-100  rounded-lg font-medium" onClick={() => {
                         const filteredRestaurants = listOfRestaurants.filter(
                             (item) => item.info.avgRating > 4.4
                         );

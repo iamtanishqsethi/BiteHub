@@ -23,8 +23,8 @@ const Header=()=>{
 
     return(
         <div className="flex justify-between bg-green-200 shadow-lg m-3 rounded-xl">
-            <div className="logo-container py-2">
-                <Link to ="/"> <img className="w-28 m-2 rounded-[50%] object-center object-cover" src={LOGO_URL} alt=""/></Link>
+            <div className="logo-container p-2">
+                <Link to ="/"> <img className="w-24 m-2 rounded-[50%] object-center object-cover" src={LOGO_URL} alt=""/></Link>
 
             </div>
             <div className="flex items-center justify-between">
